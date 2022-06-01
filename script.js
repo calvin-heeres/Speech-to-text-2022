@@ -7,7 +7,7 @@ const image1 = document.getElementById("image1");
 startRecognition = () => {
   if (SpeechRecognition !== undefined) { // test if speechrecognitio is supported
     let recognition = new SpeechRecognition();
-    recognition.lang = 'en-US'; // which language is used?
+    recognition.lang = 'nl-NL'; // which language is used?
     recognition.interimResults = false; // https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/interimResults
     recognition.continuous = false; // https://developer.mozilla.org/en-US/docs/Web/API/SpeechRecognition/continuous
    
@@ -51,17 +51,22 @@ actionSpeech = (speechText) => {
       document.body.style.color="#000000";
       image1.classList.add("hide"); // hide image (if any)
       break;
-    case "image": // let op, "fall-through"
-    case "caroline": // let op, "fall-through"
-      image1.src = "./img/caroline.jpg";
-      image1.style.width = "400px";
-      image1.classList.remove("hide") // show image
-      break;
     case "next page":
       window.open("https://www.ma-web.nl/", "_self");
       break;
     case "help me":
-      alert("Valid speech commands: black,  reset, next page");
+      alert("Valid speech commands: Calvin, Oculus, Quest 2, reset, next page");
+      break;
+    case "Calvin":
+      window.open("https://www.linkedin.com/in/calvin-heeres-797951240/", "_self");
+      break;
+    case "Oculus":
+      window.open("https://store.facebook.com/nl/quest/products/quest-2/", "_self");
+      break;
+    case "image": // let op, "fall-through"
+    case "Quest 2": // let op, "fall-through"
+      image1.src = "./img/Wuest.webp";
+      image1.classList.remove("hide") // show image
       break;
     default:
       // do nothing yet
